@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido</title>
     <link rel="stylesheet" href="estilos.css">
     <script>
-function cargarFormulario(){
+        function cargarFormulario() {
+            const xmlData = localStorage.getItem('usuarioXML');
+            if (xmlData) {
+
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlData, 'application/xml');
+                const nombre = xmlDoc.getElementsByTagName('nombre')[0].textContent;
+             
+
+                document.getElementById('resultado').innerHTML = `<h2>Datos recibidos</h2>
+                <p><strong>Nombre: </strong>${nombre}</p>`
+        
+                window.alert("Bienvenido: " + nombre + "!")
 
 
-}
+            } else {
+                document.getElementById('resultado').innerHTML = '<p>No se encontraron datos en el localStorage</p>';
+            }
+
+        }
+        function EliminarDatos() {
+            const xmlData = localStorage.removeItem('usuarioXML');
+            window.location.href = 'Formulario_usuario.html';
+        }
+
     </script>
 </head>
+
 <body onload="cargarFormulario()">
     <h1>Datos del Usuario</h1>
     <div id="resultado"></div>
+    <button onclick="EliminarDatos()">Eliminar Datos</button>
 </body>
+
 </html>

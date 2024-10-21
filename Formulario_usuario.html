@@ -5,28 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
-    <title>Inicie Sesion</title>
+    <title>Datos del usuario tarea</title>
     <script src="enviarFormulario.js"></script>
 </head>
 
-<body onload="enviarFormulario()">
+<body>
     <div>
-        <h1>Formulario Inicio Sesion</h1>
-
-        <form action="">
-
-
-            <label for="Nombre">Ingrese Un Nombre de Usuario</label>
-            
-            <input type="text" placeholder="FranMora2783" id="nombre" required>
+        <h1>Guardar Nombre</h1>
+        <form onsubmit="return enviarFormulario()">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" required>
             <br>
-            <label for="email">Ingrese Un email</label>
-            <input type="email" placeholder="FranMora2783@correo.com" id="email" required>
-            <br>
-            <label for="telefono">Ingrese Un numero de telefono</label>
-            <input type="number" placeholder="" id="telefono"  required>
-            <br>
-            <button onsubmit="">Subir Datos</button>
+            <button type="submit" id="enviar">Guardar Nombre</button>
+    
         </form>
     </div>
 </body>
